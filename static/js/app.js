@@ -3,13 +3,19 @@ var tableData = data;
 
 // console.log ufo data from data.js
 console.log(tableData)
-
+// select HTML body element
 var tbody = d3.select("tbody");
-
+// use forEach to select each sighting in the data
 tableData.forEach((UFOSighting) => {
+    // append row for each sighting
     var row = tbody.append("tr");
+    // use `Object.entries` to console log each value and append to table
     Object.entries(UFOSighting).forEach(([key, value]) => {
+        // log each key and value
+        console.log(key, value);
+        // append cell to row
         var cell = row.append("td");
+        // populate cell with value
         cell.text(value);
     });
 });
