@@ -51,7 +51,10 @@ button.on("click", function(){
     // log filters
     // console.log(filters)
     // filter to selected date
-    var filteredSightings = tableData.filter(sighting => filters.every(filterTable => sighting[filterTable.type]===filterTable.name));
+    var filteredSightings = tableData.filter(sighting => filters.every(filterTable => {
+        if (filterTable.name === "") return true
+        return sighting[filterTable.type] === filterTable.name
+    }));
     // log filtered values
     // console.log(filteredSightings)
 
